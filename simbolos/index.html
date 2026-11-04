@@ -443,10 +443,11 @@ footer a { color: #b9a582; }
   const API = "https://script.google.com/macros/s/AKfycbwqyDVQAjF0O4-bLnF5DmbpObNYaeN_psbOF1cv4pg3Rdbw-NNtsoySh6oNR1e1ZtAblw/exec";
   const PADRAO = { id: "a", preco: 10, checkout: "https://pay.hub.la/pYU0ErgIZMwYODv0GImh" };
   const SEMANA = 7 * 24 * 3600 * 1000;
+  const ANGULO = new URLSearchParams(location.search).get("angulo");
 
   function aplicar(v) {
     document.querySelectorAll("[data-price]").forEach(el => el.textContent = v.preco);
-    document.querySelectorAll("[data-checkout]").forEach(a => a.href = v.checkout);
+    document.querySelectorAll("[data-checkout]").forEach(a => a.href = v.checkout + (ANGULO ? "?utm_content=" + encodeURIComponent(ANGULO) : ""));
     document.documentElement.classList.remove("aguardando");
   }
 
@@ -466,8 +467,9 @@ footer a { color: #b9a582; }
 
   escolher().then(aplicar).catch(() => aplicar(PADRAO));
 
-  // Ângulo do anúncio: ?angulo=brasao troca o título e os textos marcados com data-brasao.
-  if (new URLSearchParams(location.search).get("angulo") === "brasao")
+  // Ângulo do anúncio: ?angulo=brasao troca o título e os textos marcados com data-brasao,
+  // e o ângulo segue para o checkout como utm_content, para as vendas aparecerem separadas na Hubla.
+  if (ANGULO === "brasao")
     document.querySelectorAll("[data-brasao]").forEach(el => el.textContent = el.dataset.brasao);
 </script>
 </body>
