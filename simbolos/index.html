@@ -118,6 +118,9 @@ table.latim td:first-child { font-family: "Cinzel"; font-size: 12.5px; letter-sp
 
 /* autor */
 .autor p { font-size: 19px; }
+.autor .retrato { width: 240px; margin: 0 auto 30px; padding: 8px; border: 1px solid #cdb68b; position: relative; }
+.autor .retrato::after { content: ""; position: absolute; inset: 4px; border: 1px solid rgba(160,122,50,.28); pointer-events: none; }
+.autor .retrato img { display: block; width: 100%; }
 .autor .arroba { margin-top: 22px; text-align: center; font-family: "Cinzel"; font-size: 13px; letter-spacing: .25em; }
 .autor .arroba a { color: var(--gold); text-decoration: none; }
 
@@ -304,6 +307,7 @@ footer a { color: #b9a582; }
 <section class="autor">
   <div class="wrap">
     <h2>Quem escreveu</h2>
+    <div class="retrato"><img src="img/andre.webp" alt="André Soler" width="480" height="601" loading="lazy"></div>
     <p><b>André Soler</b> é o criador do Christus Imperat, perfil no Instagram sobre símbolos, história e humor católico, acompanhado hoje por mais de 16 mil pessoas.</p>
     <p>Este livro nasceu de um post com nove símbolos católicos, que se tornou um dos mais curtidos do perfil. Nos comentários, muita gente perguntou pelos símbolos que tinham ficado de fora e queria saber mais sobre cada um. Este e-book é a resposta a esses pedidos.</p>
     <p class="arroba"><a href="https://www.instagram.com/christusimperat_/">@CHRISTUSIMPERAT_</a></p>
