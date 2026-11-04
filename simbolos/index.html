@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Símbolos da Santa Igreja · Christus Imperat</title>
+<meta name="description" content="E-book com a história e o significado de 16 símbolos católicos, das catacumbas às cruzes dos cavaleiros.">
+<style>
+@font-face { font-family: "EB Garamond"; src: url("fonts/EBGaramond.ttf"); font-weight: 400 800; font-display: swap; }
+@font-face { font-family: "EB Garamond"; src: url("fonts/EBGaramond-Italic.ttf"); font-weight: 400 800; font-style: italic; font-display: swap; }
+@font-face { font-family: "Cinzel"; src: url("fonts/Cinzel.ttf"); font-weight: 400 900; font-display: swap; }
+
+:root {
+  --paper: #f3ead6;
+  --paper-2: #ebdfc4;
+  --ink: #2a2017;
+  --muted: #6b5a45;
+  --gold: #a07a32;
+  --gold-light: #dcc08a;
+  --blood: #7b1e1a;
+  --night: #120c08;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: "EB Garamond", Georgia, serif; font-size: 19px; line-height: 1.6; color: var(--ink); background: var(--paper); -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; }
+.wrap { max-width: 700px; margin: 0 auto; padding: 0 22px; }
+section { padding: 72px 0; }
+p + p { margin-top: .9em; }
+em { font-style: italic; }
+
+/* títulos */
+.kicker { font-family: "Cinzel"; font-size: 12px; letter-spacing: .42em; text-transform: uppercase; color: var(--gold); text-align: center; padding-left: .42em; }
+h2 { font-family: "Cinzel"; font-weight: 600; font-size: clamp(25px, 5.4vw, 34px); line-height: 1.2; text-align: center; color: var(--blood); margin: 10px 0 0; letter-spacing: .02em; }
+h2::after { content: ""; display: block; width: 56px; margin: 20px auto 30px; border-top: 1px solid var(--gold); }
+h3 { font-family: "Cinzel"; font-weight: 600; font-size: 17px; letter-spacing: .06em; color: var(--ink); }
+
+/* botão */
+.cta { display: block; width: 100%; max-width: 420px; margin: 0 auto; padding: 19px 24px; text-align: center; text-decoration: none;
+  font-family: "Cinzel"; font-weight: 700; font-size: 16px; letter-spacing: .14em; text-transform: uppercase; color: #f6e8c6;
+  background: var(--blood); border: 1px solid #b08a45; outline: 1px solid var(--blood); outline-offset: 3px; transition: background .2s; }
+.cta:hover { background: #8f2620; }
+.cta-note { margin-top: 14px; text-align: center; font-size: 15px; color: var(--muted); }
+.dark .cta-note { color: #b9a582; }
+
+/* seções escuras */
+.dark { background: var(--night); color: #eadcbc; position: relative; }
+.dark h2 { color: #f1dfb2; }
+.dark .kicker { color: var(--gold-light); }
+
+/* topo */
+.hero { padding: 0; background: var(--night) url("img/fundo-catacumbas.jpg") center / cover; position: relative; color: #eadcbc; }
+.hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(12,8,5,.78), rgba(12,8,5,.9) 60%, var(--night)); }
+.hero .wrap { position: relative; padding-top: 54px; padding-bottom: 64px; text-align: center; }
+.hero .brand { font-family: "Cinzel"; font-size: 12px; letter-spacing: .5em; color: var(--gold-light); padding-left: .5em; }
+.hero h1 { margin-top: 26px; font-weight: 400; line-height: 1; }
+.hero h1 .t1 { display: block; font-family: "Cinzel"; font-weight: 600; font-size: clamp(46px, 11vw, 74px); letter-spacing: .05em; color: #f4e3b8; }
+.hero h1 .t2 { display: block; margin-top: 12px; font-family: "Cinzel"; font-weight: 500; font-size: clamp(15px, 3.6vw, 21px); letter-spacing: .4em; padding-left: .4em; color: var(--gold-light); }
+.hero .lede { margin: 28px auto 0; max-width: 560px; font-size: 21px; line-height: 1.5; color: #e6d6b1; }
+.hero .cover { width: 260px; margin: 38px auto 0; box-shadow: 0 18px 50px rgba(0,0,0,.7), 0 0 0 1px rgba(214,184,120,.35); }
+.hero .facts { margin: 34px 0 30px; display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 22px; font-family: "Cinzel"; font-size: 12.5px; letter-spacing: .14em; color: var(--gold-light); }
+.hero .facts span + span::before { content: "✦"; margin-right: 22px; color: var(--gold); font-size: 10px; }
+
+/* listas do conteúdo */
+.part { margin-top: 34px; border-top: 1px solid rgba(160,122,50,.45); padding-top: 22px; }
+.part:first-of-type { margin-top: 0; }
+.part .num { font-family: "Cinzel"; font-size: 12px; letter-spacing: .3em; color: var(--gold); }
+.part h3 { margin-top: 4px; font-size: 20px; color: var(--blood); }
+.part ul { list-style: none; margin-top: 12px; }
+.part li { padding-left: 22px; position: relative; margin-top: 9px; }
+.part li::before { content: "✠"; position: absolute; left: 0; top: 1px; color: var(--gold); font-size: 14px; }
+.part li b { font-weight: 600; }
+
+/* prévia */
+.pages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 6px; }
+.pages img { width: 100%; box-shadow: 0 6px 18px rgba(0,0,0,.45); border: 1px solid rgba(214,184,120,.25); }
+@media (max-width: 560px) { .pages { grid-template-columns: repeat(2, 1fr); } .pages img:nth-child(n+5) { display: none; } }
+.caption { margin-top: 18px; text-align: center; font-size: 16px; font-style: italic; color: #b9a582; }
+
+/* objeções */
+.qa { margin-top: 24px; padding: 24px 24px 22px; background: var(--paper-2); border: 1px solid #cdb68b; position: relative; }
+.qa::after { content: ""; position: absolute; inset: 4px; border: 1px solid rgba(160,122,50,.28); pointer-events: none; }
+.qa h3 { font-size: 16.5px; color: var(--blood); margin-bottom: 8px; }
+
+/* para quem */
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+@media (max-width: 600px) { .two { grid-template-columns: 1fr; } }
+.two ul { list-style: none; margin-top: 12px; }
+.two li { margin-top: 10px; padding-left: 20px; position: relative; font-size: 18px; }
+.two .yes li::before { content: "✠"; position: absolute; left: 0; color: var(--gold); font-size: 13px; top: 2px; }
+.two .no li::before { content: "–"; position: absolute; left: 2px; color: var(--muted); }
+
+/* autor */
+.author p { font-size: 19px; }
+.author .sig { margin-top: 22px; text-align: center; font-family: "Cinzel"; font-size: 13px; letter-spacing: .3em; color: var(--gold-light); }
+
+/* oferta */
+.offer { background: var(--night) url("img/fundo-cavalaria.jpg") center / cover; }
+.offer::before { content: ""; position: absolute; inset: 0; background: rgba(12,8,5,.86); }
+.offer .wrap { position: relative; }
+.box { border: 1px solid rgba(214,184,120,.6); padding: 40px 28px 36px; position: relative; background: rgba(18,12,8,.7); text-align: center; }
+.box::after { content: ""; position: absolute; inset: 6px; border: 1px solid rgba(214,184,120,.25); pointer-events: none; }
+.box img.seal { width: 34px; margin: 0 auto 14px; }
+.box ul { list-style: none; text-align: left; max-width: 430px; margin: 22px auto 0; }
+.box li { padding: 10px 0 10px 26px; position: relative; border-bottom: 1px solid rgba(214,184,120,.15); font-size: 18px; }
+.box li::before { content: "✠"; position: absolute; left: 0; color: var(--gold); font-size: 13px; top: 13px; }
+.price { margin: 30px 0 24px; }
+.price .v { font-family: "Cinzel"; font-weight: 600; font-size: 54px; color: #f4e3b8; line-height: 1; }
+.price .v small { font-size: 22px; vertical-align: 22px; margin-right: 4px; }
+.price .s { margin-top: 8px; font-size: 16px; color: #b9a582; }
+.guarantee { margin-top: 34px; display: flex; gap: 18px; align-items: flex-start; text-align: left; }
+.guarantee .g { flex: none; width: 64px; height: 64px; border: 1px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-direction: column;
+  font-family: "Cinzel"; color: var(--gold-light); line-height: 1; }
+.guarantee .g b { font-size: 22px; } .guarantee .g span { font-size: 8px; letter-spacing: .2em; margin-top: 3px; }
+.guarantee p { font-size: 16.5px; color: #d6c59f; }
+
+/* faq */
+details { border-bottom: 1px solid rgba(160,122,50,.4); padding: 16px 0; }
+details:first-of-type { border-top: 1px solid rgba(160,122,50,.4); }
+summary { cursor: pointer; list-style: none; font-family: "Cinzel"; font-weight: 600; font-size: 16px; letter-spacing: .03em; color: var(--ink); padding-right: 28px; position: relative; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; position: absolute; right: 2px; top: -3px; font-size: 22px; color: var(--gold); }
+details[open] summary::after { content: "–"; }
+details p { margin-top: 10px; font-size: 18px; }
+
+footer { background: var(--night); color: #8f7d5f; text-align: center; padding: 36px 22px 44px; font-size: 14px; }
+footer .brand { font-family: "Cinzel"; letter-spacing: .4em; color: var(--gold-light); font-size: 12px; margin-bottom: 8px; }
+</style>
+</head>
+<body>
+
+<!-- TOPO -->
+<header class="hero">
+  <div class="wrap">
+    <p class="brand">CHRISTUS IMPERAT</p>
+    <h1><span class="t1">Símbolos</span><span class="t2">da Santa Igreja</span></h1>
+    <p class="lede">A história e o significado de 16 símbolos católicos, do peixe desenhado nas catacumbas às cruzes que os cavaleiros levavam no peito.</p>
+    <img class="cover" src="img/capa.jpg" alt="Capa do e-book Símbolos da Santa Igreja">
+    <div class="facts"><span>E-book em PDF</span><span>106 páginas</span><span>Acesso imediato</span></div>
+    <a class="cta" href="#oferta">Quero o e-book</a>
+  </div>
+</header>
+
+<!-- PROBLEMA / CONTEXTO -->
+<section>
+  <div class="wrap">
+    <p class="kicker">Por que este livro</p>
+    <h2>Você já viu esses símbolos.<br>Mas sabe o que eles dizem?</h2>
+    <p>Eles estão no sacrário da sua paróquia, na medalha que a sua avó deu, no adesivo do carro, no vitral, na casula do padre, na bandeira de um clube de futebol. A gente se acostuma a vê-los e quase nunca para para perguntar de onde vieram.</p>
+    <p>Mas cada um deles foi feito para dizer alguma coisa. O peixe era uma profissão de fé escondida, numa época em que ser cristão podia custar a vida. As letras da Medalha de São Bento formam uma oração inteira contra o mal. O pelicano ferido no alto do retábulo fala da Eucaristia. E as cruzes dos cavaleiros carregam a história de homens que deixaram tudo para servir.</p>
+    <p>Este e-book explica esses símbolos com calma: a história de cada um, o que a Escritura e a tradição da Igreja dizem sobre eles, e o que eles têm a ver com a vida de um católico hoje.</p>
+  </div>
+</section>
+
+<!-- CONTEÚDO -->
+<section style="background: var(--paper-2); padding-top: 64px;">
+  <div class="wrap">
+    <p class="kicker">O que tem dentro</p>
+    <h2>Quatro partes e um bônus</h2>
+
+    <div class="part">
+      <p class="num">PARTE I</p>
+      <h3>A Era das Catacumbas</h3>
+      <ul>
+        <li><b>Ichthys</b>, o peixe que os primeiros cristãos usavam para se reconhecer</li>
+        <li><b>Alfa e Ômega</b>, o princípio e o fim, gravados todo ano no Círio Pascal</li>
+        <li><b>Chi-Rho</b>, o monograma de Cristo que Constantino levou para a batalha</li>
+      </ul>
+    </div>
+
+    <div class="part">
+      <p class="num">PARTE II</p>
+      <h3>O Combate Espiritual</h3>
+      <ul>
+        <li><b>As Chaves do Céu</b>, a promessa a Pedro e o brasão dos papas</li>
+        <li><b>A Medalha de São Bento</b>, frente e verso, letra por letra</li>
+      </ul>
+    </div>
+
+    <div class="part">
+      <p class="num">PARTE III</p>
+      <h3>A Mãe e o Filho</h3>
+      <ul>
+        <li><b>O Pelicano Eucarístico</b>, a ave que alimenta os filhos com o próprio sangue</li>
+        <li><b>Auspice Maria</b>, o monograma mariano das igrejas antigas</li>
+        <li><b>A Medalha Milagrosa</b>, mostrada pela própria Virgem em Paris, em 1830</li>
+      </ul>
+    </div>
+
+    <div class="part">
+      <p class="num">PARTE IV</p>
+      <h3>A Cristandade e a Cavalaria</h3>
+      <ul>
+        <li><b>A Flor-de-Lis</b>, de Clóvis e São Luís até Joana d’Arc</li>
+        <li><b>A Cruz Pátea</b> dos Templários</li>
+        <li><b>A Cruz de Malta</b> e o significado das suas oito pontas</li>
+        <li><b>A Cruz de Santiago</b>, a espada e o caminho de Compostela</li>
+        <li><b>As Cruzes de Calatrava e de Avis</b>, e como uma delas chegou à história do Brasil</li>
+        <li><b>A Cruz de Jerusalém</b>, as cinco chagas e os quatro cantos da Terra</li>
+      </ul>
+    </div>
+
+    <div class="part">
+      <p class="num">BÔNUS</p>
+      <h3>O símbolo da nossa história</h3>
+      <ul>
+        <li><b>A Cruz da Ordem de Cristo</b>, a cruz pintada nas velas das naus de Cabral quando chegaram ao Brasil</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PRÉVIA -->
+<section class="dark">
+  <div class="wrap">
+    <p class="kicker">Por dentro</p>
+    <h2>Diagramado como um livro</h2>
+    <div class="pages">
+      <img src="img/pag-7.jpg" alt="Página do Ichthys">
+      <img src="img/pag-33.jpg" alt="Página da Medalha de São Bento">
+      <img src="img/pag-58.jpg" alt="Abertura da Parte IV">
+      <img src="img/pag-53.jpg" alt="Página da Medalha Milagrosa">
+      <img src="img/pag-76.jpg" alt="Página da Cruz de Malta">
+      <img src="img/pag-3.jpg" alt="Sumário">
+    </div>
+    <p class="caption">Mais de 20 obras de arte sacra, de Rubens a Caravaggio, ao longo do livro.</p>
+  </div>
+</section>
+
+<!-- OBJEÇÕES -->
+<section>
+  <div class="wrap">
+    <p class="kicker">Talvez você esteja pensando</p>
+    <h2>Algumas perguntas honestas</h2>
+
+    <div class="qa">
+      <h3>“Não tenho tempo de ler um livro inteiro.”</h3>
+      <p>Não precisa ler de uma vez. Cada símbolo é um capítulo independente, que se lê em dez ou quinze minutos. Dá para começar pelo seu preferido e seguir na ordem que quiser.</p>
+    </div>
+
+    <div class="qa">
+      <h3>“Já sei o que significa o peixe, a cruz…”</h3>
+      <p>Provavelmente você conhece o básico. O livro vai além: o epitáfio de Abércio, um bispo do século II que falou do peixe em versos enigmáticos; o que significa cada letra do verso da Medalha de São Bento; por que as pontas da Cruz de Malta são oito; e como uma cruz florida, nascida numa fortaleza espanhola, acabou ligada à dinastia que chegou ao Brasil.</p>
+    </div>
+
+    <div class="qa">
+      <h3>“O conteúdo é confiável?”</h3>
+      <p>O texto se apoia na Sagrada Escritura, nos Padres da Igreja, nos hinos da liturgia e nos documentos históricos. Datas e fatos foram conferidos. Quando uma explicação é tradição piedosa e não fato comprovado, o livro diz isso claramente.</p>
+    </div>
+
+    <div class="qa">
+      <h3>“É só um PDF?”</h3>
+      <p>É um PDF, mas montado como livro: 106 páginas, com tipografia clássica, pinturas em boa resolução e um desenho de cada símbolo. Abre no celular, no tablet e no computador, e pode ser impresso.</p>
+    </div>
+
+    <div class="qa">
+      <h3>“E se eu não gostar?”</h3>
+      <p>Você tem 7 dias de garantia. Se achar que não valeu, é só pedir o reembolso pela própria plataforma e recebe o valor integral, sem precisar explicar o motivo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUEM -->
+<section style="background: var(--paper-2);">
+  <div class="wrap">
+    <p class="kicker">Para quem é</p>
+    <h2>Para quem é este livro</h2>
+    <div class="two">
+      <div class="yes">
+        <h3>É para você se…</h3>
+        <ul>
+          <li>quer entender o que vê na igreja e nas medalhas que usa</li>
+          <li>gosta de história, de Templários e de cavalaria</li>
+          <li>quer explicar a fé aos filhos, aos afilhados ou aos alunos de catequese</li>
+          <li>procura um presente para um católico que gosta de ler</li>
+        </ul>
+      </div>
+      <div class="no">
+        <h3>Não é para você se…</h3>
+        <ul>
+          <li>procura um tratado técnico de heráldica</li>
+          <li>quer um livro impresso (este é digital)</li>
+          <li>espera um catálogo de todos os símbolos da Igreja: são 16, escolhidos e explicados com profundidade</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUTOR -->
+<section class="dark author">
+  <div class="wrap">
+    <p class="kicker">Quem escreve</p>
+    <h2>Christus Imperat</h2>
+    <p>O Christus Imperat é um perfil católico no Instagram sobre símbolos, história e humor católico, acompanhado hoje por mais de 16 mil pessoas.</p>
+    <p>Este livro nasceu de um post com nove símbolos católicos, que se tornou um dos mais curtidos do perfil. Nos comentários, muita gente perguntou pelos símbolos que tinham ficado de fora e queria saber mais sobre cada um. Este e-book é a resposta a esses pedidos.</p>
+    <p class="sig">@CHRISTUSIMPERAT_</p>
+  </div>
+</section>
+
+<!-- OFERTA -->
+<section class="dark offer" id="oferta">
+  <div class="wrap">
+    <div class="box">
+      <img class="seal" src="img/patea-ouro.png" alt="">
+      <p class="kicker">Símbolos da Santa Igreja</p>
+      <ul>
+        <li>E-book completo em PDF, com 106 páginas</li>
+        <li>16 símbolos explicados, em quatro partes</li>
+        <li>Capítulo bônus sobre a Cruz da Ordem de Cristo</li>
+        <li>Mais de 20 obras de arte sacra</li>
+        <li>Acesso imediato, para ler em qualquer aparelho</li>
+      </ul>
+      <div class="price">
+        <div class="v"><small>R$</small><span data-price>10</span></div>
+        <p class="s">pagamento único, no Pix ou no cartão</p>
+      </div>
+      <a class="cta" href="#" data-checkout>Quero o e-book</a>
+      <p class="cta-note">Você recebe o acesso por e-mail logo após o pagamento.</p>
+      <div class="guarantee">
+        <div class="g"><b>7</b><span>DIAS</span></div>
+        <p>Leia com calma. Se em 7 dias achar que o livro não valeu, peça o reembolso pela plataforma e devolvemos o valor integral.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="wrap">
+    <p class="kicker">Dúvidas</p>
+    <h2>Perguntas frequentes</h2>
+    <details><summary>Como recebo o e-book?</summary><p>Assim que o pagamento é confirmado, você recebe um e-mail com o acesso à área de membros, onde o PDF fica disponível para baixar. No Pix e no cartão, isso costuma levar poucos minutos.</p></details>
+    <details><summary>Consigo ler no celular?</summary><p>Sim. O PDF abre em qualquer celular, tablet ou computador. Se preferir papel, você pode imprimir.</p></details>
+    <details><summary>Posso dar de presente?</summary><p>Pode. Basta comprar e encaminhar o arquivo para a pessoa. É um bom presente de Crisma, de Primeira Comunhão ou para padrinhos.</p></details>
+    <details><summary>Serve para quem está começando na fé?</summary><p>Sim. O livro não pressupõe conhecimento prévio: cada termo é explicado quando aparece. E quem já conhece a fé há muitos anos também vai encontrar coisas novas.</p></details>
+    <details><summary>Não recebi o acesso. E agora?</summary><p>Confira a caixa de spam e a aba Promoções do e-mail. Se não encontrar, fale com a gente pelo direct do Instagram @christusimperat_.</p></details>
+  </div>
+</section>
+
+<section class="dark" style="padding: 60px 0;">
+  <div class="wrap">
+    <a class="cta" href="#" data-checkout>Quero o e-book</a>
+    <p class="cta-note">R$ <span data-price>10</span> · acesso imediato · 7 dias de garantia</p>
+  </div>
+</section>
+
+<footer>
+  <p class="brand">CHRISTUS IMPERAT</p>
+  <p>Símbolos da Santa Igreja · Todos os direitos reservados</p>
+</footer>
+
+<script>
+  // Preço e link do checkout. Para um teste A/B, acrescente outra variante (ex.: b: { price: "17", checkout: "..." }):
+  // cada visitante é sorteado uma vez e continua vendo a mesma variante; ?v=b na URL força uma delas.
+  const VARIANTS = {
+    a: { price: "10", checkout: "#oferta" },
+  };
+  const keys = Object.keys(VARIANTS);
+  const forced = new URLSearchParams(location.search).get("v");
+  let v = VARIANTS[forced] ? forced : localStorage.getItem("variante");
+  if (!VARIANTS[v]) v = keys[Math.floor(Math.random() * keys.length)];
+  localStorage.setItem("variante", v);
+  document.querySelectorAll("[data-price]").forEach(el => el.textContent = VARIANTS[v].price);
+  document.querySelectorAll("[data-checkout]").forEach(a => a.href = VARIANTS[v].checkout);
+</script>
+</body>
+</html>
