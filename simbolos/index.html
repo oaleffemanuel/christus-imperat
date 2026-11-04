@@ -32,7 +32,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body { font-family: "EB Garamond", Georgia, serif; font-size: 19px; line-height: 1.6; color: var(--ink); background: var(--paper); -webkit-font-smoothing: antialiased; }
-img { display: block; max-width: 100%; }
+img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; }
 .wrap { max-width: 680px; margin: 0 auto; padding: 0 22px; }
 section { padding: 68px 0; }
@@ -109,6 +109,11 @@ table.latim td:first-child { font-family: "Cinzel"; font-size: 12.5px; letter-sp
 .paginas { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 22px 18px; margin: 0 -22px; scrollbar-width: none; }
 .paginas::-webkit-scrollbar { display: none; }
 .paginas img { flex: none; width: 74%; max-width: 330px; scroll-snap-align: center; box-shadow: 0 8px 22px rgba(0,0,0,.5); border: 1px solid rgba(214,184,120,.25); }
+@media (min-width: 700px) {
+  .paginas { display: grid; grid-template-columns: repeat(3, 1fr); overflow: visible; margin: 0; padding: 4px 0 6px; }
+  .paginas img { width: 100%; }
+  .so-celular { display: none; }
+}
 .legenda { margin-top: 10px; text-align: center; font-size: 16px; font-style: italic; color: #b9a582; }
 
 /* autor */
@@ -284,7 +289,7 @@ footer a { color: #b9a582; }
       <img src="img/pag-76.webp" width="642" height="910" loading="lazy" alt="Página da Cruz de Malta">
       <img src="img/pag-3.webp" width="642" height="910" loading="lazy" alt="Sumário">
     </div>
-    <p class="legenda">Arraste para o lado para ver mais páginas. São mais de 20 obras de arte sacra ao longo do livro, de Rubens a Caravaggio.</p>
+    <p class="legenda"><span class="so-celular">Arraste para o lado para ver mais páginas. </span>São mais de 20 obras de arte sacra ao longo do livro, de Rubens a Caravaggio.</p>
   </div>
 </section>
 
