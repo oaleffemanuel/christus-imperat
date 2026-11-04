@@ -315,7 +315,7 @@ footer .brand { font-family: "Cinzel"; letter-spacing: .4em; color: var(--gold-l
         <div class="v"><small>R$</small><span data-price>10</span></div>
         <p class="s">pagamento único, no Pix ou no cartão</p>
       </div>
-      <a class="cta" href="#" data-checkout>Quero o e-book</a>
+      <a class="cta" href="https://pay.hub.la/pYU0ErgIZMwYODv0GImh" data-checkout>Quero o e-book</a>
       <p class="cta-note">Você recebe o acesso por e-mail logo após o pagamento.</p>
       <div class="guarantee">
         <div class="g"><b>7</b><span>DIAS</span></div>
@@ -340,7 +340,7 @@ footer .brand { font-family: "Cinzel"; letter-spacing: .4em; color: var(--gold-l
 
 <section class="dark" style="padding: 60px 0;">
   <div class="wrap">
-    <a class="cta" href="#" data-checkout>Quero o e-book</a>
+    <a class="cta" href="https://pay.hub.la/pYU0ErgIZMwYODv0GImh" data-checkout>Quero o e-book</a>
     <p class="cta-note">R$ <span data-price>10</span> · acesso imediato · 7 dias de garantia</p>
   </div>
 </section>
@@ -351,18 +351,34 @@ footer .brand { font-family: "Cinzel"; letter-spacing: .4em; color: var(--gold-l
 </footer>
 
 <script>
-  // Preço e link do checkout. Para um teste A/B, acrescente outra variante (ex.: b: { price: "17", checkout: "..." }):
-  // cada visitante é sorteado uma vez e continua vendo a mesma variante; ?v=b na URL força uma delas.
-  const VARIANTS = {
-    a: { price: "10", checkout: "#oferta" },
-  };
-  const keys = Object.keys(VARIANTS);
-  const forced = new URLSearchParams(location.search).get("v");
-  let v = VARIANTS[forced] ? forced : localStorage.getItem("variante");
-  if (!VARIANTS[v]) v = keys[Math.floor(Math.random() * keys.length)];
-  localStorage.setItem("variante", v);
-  document.querySelectorAll("[data-price]").forEach(el => el.textContent = VARIANTS[v].price);
-  document.querySelectorAll("[data-checkout]").forEach(a => a.href = VARIANTS[v].checkout);
+  // Teste A/B de preço. A planilha do teste (scripts/teste-ab.gs) escolhe a variante de cada visitante,
+  // mandando mais gente para a que mais fatura por visita. A escolha fica guardada no navegador por 7 dias.
+  // ?v=a, ?v=b ou ?v=c na URL força uma variante (útil para conferir), sem contar visita.
+  const API = "";  // URL do app da web do Apps Script
+  const PADRAO = { id: "a", preco: 10, checkout: "https://pay.hub.la/pYU0ErgIZMwYODv0GImh" };
+  const SEMANA = 7 * 24 * 3600 * 1000;
+
+  function aplicar(v) {
+    document.querySelectorAll("[data-price]").forEach(el => el.textContent = v.preco);
+    document.querySelectorAll("[data-checkout]").forEach(a => a.href = v.checkout);
+  }
+
+  async function escolher() {
+    const forcada = new URLSearchParams(location.search).get("v");
+    const salva = JSON.parse(localStorage.getItem("variante") || "null");
+    if (!forcada && salva && Date.now() - salva.em < SEMANA) return salva.v;
+    if (!API) return PADRAO;
+    const ctrl = new AbortController();
+    setTimeout(() => ctrl.abort(), 4000);
+    const r = await fetch(API + "?acao=escolher" + (forcada ? "&v=" + encodeURIComponent(forcada) : ""), { signal: ctrl.signal });
+    const v = await r.json();
+    if (!v.checkout || !v.checkout.startsWith("https://pay.hub.la/")) return PADRAO;
+    if (!forcada) localStorage.setItem("variante", JSON.stringify({ v, em: Date.now() }));
+    return v;
+  }
+
+  aplicar(PADRAO);
+  escolher().then(aplicar).catch(() => {});
 </script>
 </body>
 </html>
