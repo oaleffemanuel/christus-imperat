@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>O Altar e o Avental · Christus Imperat</title>
+<meta name="description" content="A Maçonaria proclamou a República? A história da Proclamação, o papel real das lojas e o que os Papas ensinaram, de 1738 até hoje. E-book de 72 páginas, ilustrado.">
+<meta property="og:title" content="O Altar e o Avental">
+<meta property="og:description" content="A Proclamação da República, a Maçonaria e o que disseram os Papas, explicados do começo, com os documentos da época.">
+<meta property="og:image" content="https://ci.korium.co/altar/img/og.jpg">
+<meta property="og:url" content="https://ci.korium.co/altar/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0f0a07">
+<link rel="preload" href="../simbolos/fonts/Cinzel.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../simbolos/fonts/EBGaramond.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face { font-family: "EB Garamond"; src: url("../simbolos/fonts/EBGaramond.woff2") format("woff2"); font-weight: 400 800; font-display: swap; }
+@font-face { font-family: "EB Garamond"; src: url("../simbolos/fonts/EBGaramond-Italic.woff2") format("woff2"); font-weight: 400 800; font-style: italic; font-display: swap; }
+@font-face { font-family: "Cinzel"; src: url("../simbolos/fonts/Cinzel.woff2") format("woff2"); font-weight: 400 900; font-display: swap; }
+
+:root {
+  --paper: #f3ead6;
+  --paper-2: #ebdfc4;
+  --ink: #2a2017;
+  --muted: #6b5a45;
+  --gold: #a07a32;
+  --gold-light: #dcc08a;
+  --cream: #f4e3b8;
+  --blood: #7b1e1a;
+  --night: #0f0a07;
+  --night-2: #1a120c;
+  --line: rgba(160,122,50,.4);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: "EB Garamond", Georgia, serif; font-size: 19px; line-height: 1.6; color: var(--ink); background: var(--paper); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+em { font-style: italic; }
+.wrap { max-width: 720px; margin: 0 auto; padding: 0 22px; }
+.larga { max-width: 1080px; }
+section { padding: 88px 0; position: relative; }
+p + p { margin-top: .9em; }
+
+/* tipografia */
+.kicker { font-family: "Cinzel"; font-size: 12px; letter-spacing: .38em; padding-left: .38em; text-transform: uppercase; color: var(--gold); text-align: center; margin-bottom: 14px; }
+h2 { font-family: "Cinzel"; font-weight: 600; font-size: clamp(26px, 5.6vw, 40px); line-height: 1.18; text-align: center; color: var(--blood); letter-spacing: .01em; text-wrap: balance; }
+h2 + .sob { margin-top: 18px; text-align: center; color: var(--muted); font-size: 20px; font-style: italic; text-wrap: balance; }
+.regra { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 26px auto 36px; color: var(--gold); }
+.regra::before, .regra::after { content: ""; width: 56px; border-top: 1px solid currentColor; }
+.regra span { font-family: "Cinzel"; font-size: 14px; line-height: 1; }
+h3 { font-family: "Cinzel"; font-weight: 600; font-size: 18px; letter-spacing: .04em; line-height: 1.3; }
+
+/* revelação ao rolar */
+.rv { opacity: 0; transform: translateY(22px); transition: opacity .8s ease, transform .8s ease; }
+.rv.on { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+
+/* lista com losango */
+.lista { list-style: none; }
+.lista li { position: relative; padding-left: 22px; margin-top: 10px; }
+.lista li::before { content: ""; position: absolute; left: 3px; top: .62em; width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); }
+.lista.vazado li::before { background: none; border: 1px solid var(--muted); }
+
+/* botão */
+.cta { display: block; width: 100%; max-width: 420px; margin: 0 auto; padding: 19px 24px; text-align: center; text-decoration: none;
+  font-family: "Cinzel"; font-weight: 700; font-size: 16px; letter-spacing: .14em; text-transform: uppercase; color: #f6e8c6;
+  background: linear-gradient(180deg, #8e2520, var(--blood)); border: 1px solid #b08a45; outline: 1px solid var(--blood); outline-offset: 3px;
+  box-shadow: 0 14px 34px -12px rgba(123,30,26,.75); transition: transform .2s, box-shadow .2s; }
+.cta:hover { transform: translateY(-2px); box-shadow: 0 18px 40px -12px rgba(123,30,26,.9); }
+.nota { margin-top: 14px; text-align: center; font-size: 15.5px; color: var(--muted); }
+
+/* ---------- topo ---------- */
+.hero { min-height: 100vh; min-height: 100svh; display: flex; align-items: flex-end; padding: 0; color: #eadcbc; background: var(--night) url("img/fundo-proclamacao.webp") 44% center / cover; overflow: hidden; }
+@media (max-width: 700px) { .hero { background-image: url("img/fundo-proclamacao-m.webp"); background-position: 40% 30%; } }
+.hero::before { content: ""; position: absolute; inset: 0; background:
+  linear-gradient(to bottom, rgba(15,10,7,.65) 0%, rgba(15,10,7,.35) 22%, rgba(15,10,7,.5) 42%, rgba(15,10,7,.9) 66%, var(--night) 100%); }
+.hero::after { content: ""; position: absolute; inset: 14px; border: 1px solid rgba(214,184,120,.35); pointer-events: none; }
+.hero .marca { position: absolute; top: 34px; left: 0; right: 0; z-index: 2; font-family: "Cinzel"; font-size: 11px; letter-spacing: .5em; padding-left: .5em; color: var(--gold-light); text-align: center; }
+.hero .wrap { position: relative; z-index: 2; max-width: 1000px; padding-top: 96px; padding-bottom: 40px; text-align: center; }
+@media (max-width: 700px) { .hero .wrap { padding-top: 72px; padding-bottom: 30px; } .hero .produto { margin-top: 22px; } .hero .produto img { width: 92px; } .hero .produto .lista { font-size: 16px; } .hero .valor { margin: 20px 0 14px; } .hero .rolar { display: none; } }
+.hero .data { font-family: "Cinzel"; font-size: 13px; letter-spacing: .32em; padding-left: .32em; color: var(--gold-light); }
+.hero h1 { margin-top: 16px; font-family: "Cinzel"; font-weight: 600; font-size: clamp(28px, 6.6vw, 54px); line-height: 1.1; color: var(--cream); letter-spacing: .005em; text-wrap: balance; text-shadow: 0 2px 24px rgba(0,0,0,.6); }
+.hero h1 em { font-family: "EB Garamond"; font-style: italic; font-weight: 500; color: var(--gold-light); }
+.hero .sub { margin: 18px auto 0; max-width: 640px; font-size: clamp(18px, 2.4vw, 21px); line-height: 1.5; color: #dccca6; text-wrap: pretty; }
+.hero .produto { margin: 28px auto 0; display: flex; gap: 22px; align-items: center; justify-content: center; text-align: left; }
+.hero .produto img { width: 112px; flex: none; transform: rotate(-3deg); box-shadow: 0 16px 34px rgba(0,0,0,.75), 0 0 0 1px rgba(214,184,120,.35); }
+.hero .produto .lista { font-size: 17px; color: #e6d6b1; }
+.hero .produto .lista li { margin-top: 5px; }
+.hero .produto .lista li:first-child { margin-top: 0; }
+.hero .valor { margin: 30px 0 18px; font-family: "Cinzel"; color: var(--cream); }
+.hero .valor b { font-size: 38px; font-weight: 600; }
+.hero .valor .obs { font-family: "EB Garamond"; font-size: 16px; color: #b9a582; margin-left: 8px; }
+.hero .nota { color: #b9a582; }
+.hero .rolar { margin-top: 30px; font-family: "Cinzel"; font-size: 11px; letter-spacing: .4em; color: rgba(220,192,138,.6); }
+.hero .rolar::after { content: ""; display: block; width: 1px; height: 34px; margin: 10px auto 0; background: linear-gradient(var(--gold-light), transparent); animation: desce 2.4s ease-in-out infinite; }
+@keyframes desce { 0%,100% { transform: scaleY(.4); transform-origin: top; opacity: .4; } 50% { transform: scaleY(1); opacity: 1; } }
+
+/* ---------- duas versões ---------- */
+.versoes { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 8px; }
+@media (max-width: 640px) { .versoes { grid-template-columns: 1fr; } }
+.versao { position: relative; padding: 54px 24px 24px; background: var(--paper-2); border: 1px solid #cdb68b; }
+.versao .quem { font-family: "Cinzel"; font-size: 11px; letter-spacing: .28em; color: var(--muted); }
+.versao blockquote { margin-top: 10px; font-family: "Cinzel"; font-weight: 600; font-size: 21px; line-height: 1.3; color: var(--ink); }
+.versao .selo { position: absolute; top: 18px; right: 16px; transform: rotate(8deg); font-family: "Cinzel"; font-weight: 700; font-size: 11px; letter-spacing: .2em; color: var(--blood); border: 1.5px solid var(--blood); padding: 4px 8px; opacity: .85; }
+.versao p { margin-top: 12px; font-size: 17.5px; color: var(--muted); }
+.veredito { margin-top: 34px; font-size: 20px; }
+.veredito strong { font-weight: 600; }
+
+/* ---------- números ---------- */
+.escura { background: var(--night); color: #eadcbc; }
+.escura h2 { color: #f1dfb2; }
+.escura .kicker { color: var(--gold-light); }
+.escura .sob, .escura .nota { color: #b9a582; }
+.escura .regra { color: var(--gold-light); }
+.numeros { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid rgba(214,184,120,.25); border-left: 1px solid rgba(214,184,120,.25); }
+@media (max-width: 860px) { .numeros { grid-template-columns: 1fr 1fr; } }
+.num { padding: 30px 22px 28px; border-right: 1px solid rgba(214,184,120,.25); border-bottom: 1px solid rgba(214,184,120,.25); }
+.num b { display: block; font-family: "Cinzel"; font-weight: 600; font-size: clamp(40px, 8vw, 58px); line-height: 1; color: var(--cream); }
+.num b small { font-size: .42em; letter-spacing: .08em; margin-left: 4px; color: var(--gold-light); }
+.num p { margin-top: 14px; font-size: 16.5px; line-height: 1.45; color: #cdbb95; }
+@media (max-width: 420px) { .num { padding: 24px 16px 22px; } .num p { font-size: 15.5px; } }
+
+/* ---------- trecho ---------- */
+.trecho { background: var(--paper-2); }
+.folha { display: grid; grid-template-columns: 210px 1fr; gap: 32px; background: var(--paper); border: 1px solid #cdb68b; padding: 38px 34px 32px; position: relative; box-shadow: 0 30px 60px -40px rgba(42,32,23,.6); }
+.folha::after { content: ""; position: absolute; inset: 5px; border: 1px solid rgba(160,122,50,.28); pointer-events: none; }
+@media (max-width: 680px) { .folha { grid-template-columns: 1fr; padding: 30px 22px 26px; } .folha figure { max-width: 190px; margin: 0 auto; } }
+.folha figure img { width: 100%; filter: sepia(.25); }
+.folha figcaption { margin-top: 8px; font-size: 13.5px; line-height: 1.35; color: var(--muted); font-style: italic; text-align: center; }
+.folha .tit { font-family: "Cinzel"; font-size: 13px; letter-spacing: .3em; color: var(--blood); margin-bottom: 14px; }
+.folha p { font-size: 18px; text-align: justify; hyphens: auto; }
+.folha .capitular::first-letter { float: left; font-family: "Cinzel"; font-weight: 600; font-size: 58px; line-height: .82; padding: 6px 8px 0 0; color: var(--blood); }
+.folha .fim { margin-top: 20px; font-family: "Cinzel"; font-size: 11.5px; letter-spacing: .2em; color: var(--muted); text-align: right; }
+
+/* ---------- linha do tempo ---------- */
+.tempo { background: var(--night-2); color: #eadcbc; overflow: hidden; }
+.tempo h2 { color: #f1dfb2; } .tempo .kicker, .tempo .regra { color: var(--gold-light); }
+.trilho { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 8px max(22px, calc((100vw - 1080px) / 2)) 26px; scrollbar-width: thin; scrollbar-color: var(--gold) transparent; }
+.trilho::-webkit-scrollbar { height: 4px; } .trilho::-webkit-scrollbar-thumb { background: var(--gold); }
+.marco { flex: none; width: 260px; scroll-snap-align: start; padding: 22px 20px 22px; border: 1px solid rgba(214,184,120,.28); background: linear-gradient(180deg, rgba(214,184,120,.06), transparent 60%); position: relative; }
+.marco::before { content: ""; position: absolute; top: -1px; left: 20px; width: 40px; border-top: 2px solid var(--gold-light); }
+.marco .ano { font-family: "Cinzel"; font-weight: 600; font-size: 34px; color: var(--cream); line-height: 1; }
+.marco .dia { font-family: "Cinzel"; font-size: 11px; letter-spacing: .2em; color: var(--gold-light); margin-top: 8px; }
+.marco p { margin-top: 12px; font-size: 16.5px; line-height: 1.45; color: #d6c59f; }
+.marco img { width: 64px; height: 80px; object-fit: cover; object-position: top; float: right; margin: 0 0 6px 12px; border: 1px solid rgba(214,184,120,.4); filter: sepia(.2); }
+.marco.igreja { border-color: rgba(214,184,120,.55); }
+.marco.igreja .ano { color: var(--gold-light); }
+.tempo .dica { text-align: center; font-size: 15px; font-style: italic; color: #9d8b6c; }
+
+/* ---------- partes ---------- */
+.partes { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 760px) { .partes { grid-template-columns: 1fr; } }
+.parte { background: var(--paper-2); border: 1px solid #cdb68b; overflow: hidden; display: flex; flex-direction: column; }
+.parte .pint { position: relative; height: 170px; background-size: cover; background-position: center; }
+.parte .pint::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(15,10,7,.1), rgba(15,10,7,.78)); }
+.parte .pint span { position: absolute; left: 22px; bottom: 16px; z-index: 1; font-family: "Cinzel"; font-size: 12px; letter-spacing: .3em; color: var(--gold-light); }
+.parte .corpo { padding: 20px 22px 24px; }
+.parte h3 { font-size: 21px; color: var(--blood); }
+.parte .lista { margin-top: 8px; font-size: 17.5px; }
+.parte .lista li { margin-top: 7px; }
+.parte .lista b { font-weight: 600; }
+.extra { margin-top: 20px; padding: 22px; border: 1px dashed var(--gold); text-align: center; font-size: 18px; }
+.extra b { font-family: "Cinzel"; font-weight: 600; font-size: 15px; letter-spacing: .08em; color: var(--blood); }
+
+/* ---------- páginas ---------- */
+.paginas { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 22px 20px; margin: 0 -22px; scrollbar-width: none; }
+.paginas::-webkit-scrollbar { display: none; }
+.paginas img { flex: none; width: 70%; max-width: 300px; scroll-snap-align: center; box-shadow: 0 14px 30px rgba(0,0,0,.55); border: 1px solid rgba(214,184,120,.25); }
+@media (min-width: 900px) {
+  .paginas { display: grid; grid-template-columns: repeat(4, 1fr); overflow: visible; margin: 0; padding: 4px 0 6px; }
+  .paginas img { width: 100%; max-width: none; transition: transform .3s; }
+  .paginas img:hover { transform: translateY(-6px) rotate(-.6deg); }
+  .so-celular { display: none; }
+}
+.legenda { margin-top: 14px; text-align: center; font-size: 16px; font-style: italic; color: #b9a582; }
+
+/* ---------- método ---------- */
+.metodo { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 6px; }
+@media (max-width: 760px) { .metodo { grid-template-columns: 1fr; gap: 22px; } }
+.metodo div { border-top: 1px solid var(--line); padding-top: 18px; }
+.metodo h3 { font-size: 16px; color: var(--blood); }
+.metodo p { margin-top: 8px; font-size: 17.5px; }
+
+/* ---------- objeções ---------- */
+.qa { margin-top: 18px; padding: 24px 24px 22px; background: var(--paper); border: 1px solid #cdb68b; position: relative; }
+.qa:first-of-type { margin-top: 0; }
+.qa::after { content: ""; position: absolute; inset: 4px; border: 1px solid rgba(160,122,50,.28); pointer-events: none; }
+.qa h3 { font-size: 16.5px; color: var(--blood); margin-bottom: 8px; }
+.qa p { font-size: 18px; }
+
+/* ---------- para quem ---------- */
+.duas { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+@media (max-width: 620px) { .duas { grid-template-columns: 1fr; } }
+.duas .lista { font-size: 18px; margin-top: 6px; }
+
+/* ---------- propósito ---------- */
+.proposito { text-align: center; }
+.proposito p { font-size: 19px; }
+.proposito .arroba { margin-top: 18px; font-family: "Cinzel"; font-size: 13px; letter-spacing: .25em; }
+.proposito .arroba a { color: var(--gold); text-decoration: none; }
+/* ---------- autor ---------- */
+.autor { display: grid; grid-template-columns: 200px 1fr; gap: 30px; align-items: center; }
+@media (max-width: 620px) { .autor { grid-template-columns: 1fr; } .autor .retrato { max-width: 200px; margin: 0 auto; } }
+.autor .retrato { padding: 7px; border: 1px solid #cdb68b; position: relative; }
+.autor .retrato::after { content: ""; position: absolute; inset: 3px; border: 1px solid rgba(160,122,50,.28); pointer-events: none; }
+.autor p { font-size: 18.5px; }
+.autor .arroba { margin-top: 16px; font-family: "Cinzel"; font-size: 13px; letter-spacing: .25em; }
+.autor .arroba a { color: var(--gold); text-decoration: none; }
+
+/* ---------- oferta ---------- */
+.oferta { background: var(--night) url("img/fundo-lebas.webp") center / cover; }
+.oferta::before { content: ""; position: absolute; inset: 0; background: rgba(12,8,5,.88); }
+.oferta .wrap { position: relative; }
+.caixa { border: 1px solid rgba(214,184,120,.6); padding: 40px 26px 34px; position: relative; background: rgba(18,12,8,.75); text-align: center; backdrop-filter: blur(3px); }
+.caixa::after { content: ""; position: absolute; inset: 6px; border: 1px solid rgba(214,184,120,.25); pointer-events: none; }
+.caixa > img { width: 140px; margin: 0 auto 26px; box-shadow: 0 14px 30px rgba(0,0,0,.75), 0 0 0 1px rgba(214,184,120,.35); }
+.caixa .lista { text-align: left; max-width: 440px; margin: 0 auto; }
+.caixa .lista li { margin: 0; padding-top: 11px; padding-bottom: 11px; border-bottom: 1px solid rgba(214,184,120,.15); font-size: 18px; }
+.caixa .lista li::before { top: 1.3em; }
+.valor-grande { margin: 30px 0 22px; }
+.valor-grande b { font-family: "Cinzel"; font-weight: 600; font-size: 58px; color: var(--cream); line-height: 1; }
+.valor-grande b small { font-size: 22px; vertical-align: 24px; margin-right: 4px; }
+.valor-grande p { margin-top: 10px; font-size: 16px; color: #b9a582; }
+.garantia { margin-top: 30px; display: flex; gap: 18px; align-items: center; text-align: left; }
+.garantia .selo { flex: none; width: 64px; height: 64px; border: 1px solid var(--gold); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: "Cinzel"; color: var(--gold-light); line-height: 1; }
+.garantia .selo b { font-size: 22px; } .garantia .selo span { font-size: 8px; letter-spacing: .2em; margin-top: 3px; }
+.garantia p { font-size: 16.5px; color: #d6c59f; }
+
+/* ---------- faq ---------- */
+details { border-bottom: 1px solid var(--line); padding: 18px 0; }
+details:first-of-type { border-top: 1px solid var(--line); }
+summary { cursor: pointer; list-style: none; font-family: "Cinzel"; font-weight: 600; font-size: 16px; letter-spacing: .03em; padding-right: 30px; position: relative; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; position: absolute; right: 2px; top: -4px; font-size: 24px; color: var(--gold); transition: transform .25s; }
+details[open] summary::after { transform: rotate(45deg); }
+details p { margin-top: 10px; font-size: 18px; }
+.final { margin-top: 52px; }
+
+footer { background: var(--night); color: #8f7d5f; text-align: center; padding: 40px 22px 110px; font-size: 14px; line-height: 1.8; }
+footer .marca { font-family: "Cinzel"; letter-spacing: .4em; padding-left: .4em; color: var(--gold-light); font-size: 12px; margin-bottom: 8px; }
+footer a { color: #b9a582; }
+
+/* barra fixa no celular */
+.barra { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: flex; align-items: center; gap: 14px; padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+  background: rgba(15,10,7,.94); border-top: 1px solid rgba(214,184,120,.35); backdrop-filter: blur(8px); transform: translateY(110%); transition: transform .35s ease; }
+.barra.on { transform: none; }
+.barra .t { flex: 1; min-width: 0; color: #eadcbc; line-height: 1.2; }
+.barra .t b { display: block; font-family: "Cinzel"; font-weight: 600; font-size: 14px; letter-spacing: .03em; color: var(--cream); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.barra .t span { font-size: 14px; color: #b9a582; }
+.barra .cta { width: auto; margin: 0; padding: 12px 18px; font-size: 13px; outline: none; box-shadow: none; white-space: nowrap; }
+@media (min-width: 900px) { .barra { display: none; } footer { padding-bottom: 44px; } }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <p class="marca">CHRISTUS IMPERAT</p>
+  <div class="wrap">
+    <p class="data">15 · XI · 1889</p>
+    <h1>A Maçonaria proclamou a República? <em>Os documentos respondem.</em></h1>
+    <p class="sub">O Grão-Mestre que chefiava o governo quando dois bispos foram condenados à prisão com trabalho, o marechal monarquista que derrubou a monarquia e o que os Papas ensinaram sobre as lojas, de 1738 até hoje.</p>
+    <div class="produto">
+      <img src="img/capa.webp" width="112" height="159" alt="Capa do e-book O Altar e o Avental">
+      <ul class="lista">
+        <li>E-book ilustrado em PDF</li>
+        <li>72 páginas, 21 pinturas e fotografias</li>
+        <li>As 10 dúvidas mais comuns respondidas</li>
+        <li>Acesso imediato</li>
+      </ul>
+    </div>
+    <p class="valor"><b>R$ <span data-price>27</span></b><span class="obs">pagamento único</span></p>
+    <a class="cta" href="#oferta" data-checkout>Quero o e-book</a>
+    <p class="nota">7 dias de garantia · Pix ou cartão</p>
+    <p class="rolar">ROLE</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <p class="kicker rv">Duas frases que você já ouviu</p>
+    <h2 class="rv">Uma é dita com orgulho, a outra como acusação</h2>
+    <div class="regra rv"><span>✠</span></div>
+    <div class="versoes">
+      <div class="versao rv">
+        <span class="selo">EXAGERO</span>
+        <p class="quem">EM REVISTAS E PÁGINAS DE LOJAS</p>
+        <blockquote>“A Maçonaria proclamou a República.”</blockquote>
+        <p>Não se conhece ata, resolução ou ordem do Grande Oriente mandando derrubar o Império. O golpe foi feito por uma parte do Exército.</p>
+      </div>
+      <div class="versao rv">
+        <span class="selo">INCOMPLETO</span>
+        <p class="quem">NA VERSÃO INOCENTE</p>
+        <blockquote>“As lojas não tiveram nada a ver com isso.”</blockquote>
+        <p>Deodoro foi eleito Grão-Mestre 34 dias depois do golpe, vários republicanos de primeira linha tinham loja e cargo conhecidos, e a agenda laica venceu em pouco mais de um ano.</p>
+      </div>
+    </div>
+    <div class="veredito rv">
+      <p><strong>O Altar e o Avental</strong> explica, do começo, como o Império caiu, quem eram os homens da República e quais deles eram de fato maçons, e chega ao que mais importa a um católico: o que disseram os Papas e o que a Igreja ensina ainda hoje.</p>
+      <p>É um pequeno livro fiel à Igreja e cuidadoso com a história, para ler com prazer e saber explicar o assunto a qualquer pessoa.</p>
+    </div>
+  </div>
+</section>
+
+<section class="escura">
+  <div class="wrap larga">
+    <p class="kicker rv">O que a escola não contou</p>
+    <h2 class="rv">Quatro números desta história</h2>
+    <div class="regra rv"><span>✠</span></div>
+    <div class="numeros rv">
+      <div class="num"><b>1738</b><p>O ano da primeira condenação papal da Maçonaria, por Clemente XII. Mais de um século antes da República.</p></div>
+      <div class="num"><b>27<small>ANOS</small></b><p>A idade de Frei Vital quando entrou como bispo na catedral de Olinda. Menos de um mês depois, a imprensa das lojas já o atacava.</p></div>
+      <div class="num"><b>4<small>ANOS</small></b><p>De prisão com trabalho: a pena dada a dois bispos brasileiros. O gabinete que os levou ao banco dos réus era chefiado pelo Grão-Mestre.</p></div>
+      <div class="num"><b>34<small>DIAS</small></b><p>Depois do golpe, o marechal Deodoro, chefe do novo governo, foi eleito Grão-Mestre da Ordem.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="trecho">
+  <div class="wrap">
+    <p class="kicker rv">Um trecho do livro</p>
+    <h2 class="rv">O bispo que respondeu ao tribunal com uma linha do Evangelho</h2>
+    <div class="regra rv"><span>✠</span></div>
+    <article class="folha rv">
+      <figure>
+        <img src="img/vital_militao.webp" width="480" height="802" loading="lazy" alt="Frei Vital, bispo de Olinda">
+        <figcaption>Frei Vital, bispo de Olinda. Coleção Militão Augusto de Azevedo, Museu Paulista da USP.</figcaption>
+      </figure>
+      <div>
+        <p class="tit">“JESUS AUTEM TACEBAT”</p>
+        <p class="capitular">D. Vital já havia declarado, ao ser instado a responder à denúncia, que não podia fazê-lo “porque seria reconhecer a competência do Tribunal civil em matéria religiosa”. Preso às 13 horas de 2 de janeiro de 1874, no Palácio da Soledade, no Recife, recebeu a autoridade solenemente paramentado e leu um protesto, chegou ao Rio no dia 13 e foi recolhido ao Arsenal de Marinha, onde, ao receber o libelo, deu como única contestação uma linha: “Senhor! — Jesus autem tacebat”, “Jesus, porém, calava-se”, palavras com que São Mateus descreve Cristo diante do sumo sacerdote.</p>
+        <p>O Supremo Tribunal de Justiça o julgou de 18 a 21 de fevereiro e o condenou a “quatro anos de prisão com trabalho e custas”, e só um ministro, o barão de Pirapama, votou pela nulidade.</p>
+        <p class="fim">PARTE I · A NOITE EM QUE UM BISPO ENFRENTOU O IMPÉRIO</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="tempo">
+  <div class="wrap">
+    <p class="kicker rv">Linha do tempo</p>
+    <h2 class="rv">De Roma ao Rio de Janeiro</h2>
+    <div class="regra rv"><span>✠</span></div>
+  </div>
+  <div class="trilho rv">
+    <div class="marco igreja"><img src="img/clemente_xii_masucci.webp" alt="Clemente XII" loading="lazy"><p class="ano">1738</p><p class="dia">CLEMENTE XII</p><p>A bula <em>In eminenti</em> faz a primeira condenação da Maçonaria.</p></div>
+    <div class="marco"><p class="ano">1872</p><p class="dia">2 DE MARÇO · RIO</p><p>Festa no Grande Oriente do Lavradio em homenagem a Rio Branco, chefe do governo e Grão-Mestre. Um padre faz o discurso.</p></div>
+    <div class="marco"><p class="ano">1874</p><p class="dia">FEVEREIRO E JULHO</p><p>D. Vital e D. Macedo Costa condenados a quatro anos de prisão com trabalho.</p></div>
+    <div class="marco"><p class="ano">1875</p><p class="dia">17 DE SETEMBRO</p><p>Anistia dos bispos, com a rubrica de um imperador que resistiu até o fim.</p></div>
+    <div class="marco igreja"><img src="img/pio_ix_picque.webp" alt="Pio IX" loading="lazy"><p class="ano">1876</p><p class="dia">PIO IX</p><p>Escreve ao Brasil: a condenação vale para as lojas “desta região” e para as de toda parte.</p></div>
+    <div class="marco igreja"><img src="img/leao_xiii_foto.webp" alt="Leão XIII" loading="lazy"><p class="ano">1884</p><p class="dia">LEÃO XIII</p><p>A <em>Humanum genus</em> descreve o programa naturalista ponto por ponto.</p></div>
+    <div class="marco"><p class="ano">1889</p><p class="dia">15 DE NOVEMBRO</p><p>Deodoro derruba o ministério pela manhã. O Decreto nº 1 só sai à noite.</p></div>
+    <div class="marco"><p class="ano">1889</p><p class="dia">19 DE DEZEMBRO</p><p>Deodoro é eleito Grão-Mestre, 34 dias depois do golpe.</p></div>
+    <div class="marco"><p class="ano">1890</p><p class="dia">7 DE JANEIRO</p><p>O Decreto 119-A separa a Igreja do Estado. Em março, os bispos respondem: “O altar está em pé”.</p></div>
+    <div class="marco igreja"><p class="ano">1983</p><p class="dia">26 DE NOVEMBRO</p><p>A Santa Sé declara que a inscrição continua proibida e é pecado grave.</p></div>
+    <div class="marco igreja"><p class="ano">2023</p><p class="dia">13 DE NOVEMBRO</p><p>O Dicastério para a Doutrina da Fé reafirma tudo, incluindo os clérigos.</p></div>
+  </div>
+  <p class="dica so-celular">Arraste para o lado →</p>
+</section>
+
+<section>
+  <div class="wrap larga">
+    <p class="kicker rv">O que tem dentro</p>
+    <h2 class="rv">Quatro partes, do Império ao Vaticano</h2>
+    <div class="regra rv"><span>✠</span></div>
+    <div class="partes">
+      <div class="parte rv">
+        <div class="pint" style="background-image:url('img/parte-pedro_americo_fala_trono.webp')"><span>PARTE I</span></div>
+        <div class="corpo">
+          <h3>O Império</h3>
+          <ul class="lista">
+            <li><b>Dom Pedro II</b>, o imperador que nomeava os bispos e decidia quais palavras do Papa valiam no Brasil</li>
+            <li><b>Isabel</b>, a princesa católica</li>
+            <li>Café, escravidão e abolição</li>
+            <li><b>A noite em que um bispo enfrentou o Império</b>: a Questão Religiosa, da festa do Lavradio à prisão de D. Vital</li>
+          </ul>
+        </div>
+      </div>
+      <div class="parte rv">
+        <div class="pint" style="background-image:url('img/parte-figueiredo_ultimo_baile_parte.webp')"><span>PARTE II</span></div>
+        <div class="corpo">
+          <h3>O golpe</h3>
+          <ul class="lista">
+            <li>Itu e os republicanos paulistas</li>
+            <li>Um imperador já doente e os militares que entram na história</li>
+            <li><b>Deodoro, o monarquista que derrubou a monarquia</b></li>
+            <li><b>15 de novembro</b>, quase hora a hora</li>
+            <li>O exílio e a morte em Paris</li>
+          </ul>
+        </div>
+      </div>
+      <div class="parte rv">
+        <div class="pint" style="background-image:url('img/parte-lebas_mestres.webp')"><span>PARTE III</span></div>
+        <div class="corpo">
+          <h3>O avental</h3>
+          <ul class="lista">
+            <li><b>Quem era maçom na República</b>: Deodoro, Rui Barbosa, Benjamin Constant, Floriano, Quintino, Campos Sales e o Governo Provisório, nome por nome</li>
+          </ul>
+        </div>
+      </div>
+      <div class="parte rv">
+        <div class="pint" style="background-image:url('img/parte-leao_xiii_laszlo.webp')"><span>PARTE IV · O CORAÇÃO DO LIVRO</span></div>
+        <div class="corpo">
+          <h3>O que disseram os Papas</h3>
+          <ul class="lista">
+            <li><b>De 1738 a Leão XIII</b>: as condenações, com os trechos originais</li>
+            <li>O que Pio IX escreveu sobre o Brasil</li>
+            <li><b>Por que a Igreja condena</b>: o juramento, o indiferentismo e o Grande Arquiteto</li>
+            <li><b>Um católico pode ser maçom hoje?</b></li>
+            <li>A separação entre Igreja e Estado: o que se perdeu e o que se ganhou</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="extra rv"><b>E NO FINAL: AS 10 DÚVIDAS MAIS COMUNS</b><br>“Todo maçom está excomungado?”, “Se o meu padre liberou, posso?”, “Meu pai era maçom e um homem bom. Está condenado?”, “Sou maçom e quero voltar. O que faço?”</div>
+  </div>
+</section>
+
+<section class="escura">
+  <div class="wrap larga">
+    <p class="kicker rv">Por dentro do livro</p>
+    <h2 class="rv">Montado como um livro de verdade</h2>
+    <div class="regra rv"><span>✠</span></div>
+    <div class="paginas rv">
+      <img src="img/pag-42.webp" width="642" height="910" loading="lazy" alt="Abertura da Parte IV, O que disseram os Papas">
+      <img src="img/pag-16.webp" width="642" height="910" loading="lazy" alt="Página sobre D. Vital">
+      <img src="img/pag-45.webp" width="642" height="910" loading="lazy" alt="Página com o texto original de um documento papal">
+      <img src="img/pag-51.webp" width="642" height="910" loading="lazy" alt="Por que a Igreja condena">
+      <img src="img/pag-43.webp" width="642" height="910" loading="lazy" alt="De 1738 a Leão XIII">
+      <img src="img/pag-47.webp" width="642" height="910" loading="lazy" alt="Quadro das condenações papais">
+      <img src="img/pag-3.webp" width="642" height="910" loading="lazy" alt="Sumário">
+      <img src="img/capa.webp" width="642" height="910" loading="lazy" alt="Capa">
+    </div>
+    <p class="legenda"><span class="so-celular">Arraste para ver mais páginas. </span>Pinturas e fotografias, de Pedro Américo a Nadar, e os documentos dos Papas no original, com a tradução.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap larga">
+    <p class="kicker rv">Como foi feito</p>
+    <h2 class="rv">Fiel à Igreja e à história</h2>
+    <div class="regra rv"><span>✠</span></div>
+    <div class="metodo">
+      <div class="rv"><h3>Os Papas nas palavras deles</h3><p>As bulas e encíclicas foram lidas no original, no site do Vaticano e nas <em>Acta Sanctae Sedis</em>, e citadas com tradução própria.</p></div>
+      <div class="rv"><h3>Jornais e decretos da época</h3><p>O Jornal do Commercio de 1872, os relatos dos próprios bispos, os decretos do Governo Provisório e a Pastoral Coletiva de 1890.</p></div>
+      <div class="rv"><h3>Explicado do começo</h3><p>Cada personagem e cada termo é apresentado quando aparece. Não é preciso saber história para acompanhar, e o que é lenda vem dito com clareza.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--paper-2);">
+  <div class="wrap">
+    <p class="kicker rv">Talvez você esteja pensando</p>
+    <h2 class="rv">Algumas perguntas honestas</h2>
+    <div class="regra rv"><span>✠</span></div>
+    <div class="qa rv">
+      <h3>“É mais uma teoria da conspiração?”</h3>
+      <p>Não. O livro conta a história com os documentos da época e diz com clareza quando uma acusação famosa não tem fundamento. O papel real das lojas, que foi grande, fica muito mais claro assim.</p>
+    </div>
+    <div class="qa rv">
+      <h3>“É um livro contra a República?”</h3>
+      <p>Não. A Igreja nunca condenou a República, e o livro mostra isso com Leão XIII. O que os Papas reprovaram foi a separação como princípio e o laicismo que tira Deus da vida pública.</p>
+    </div>
+    <div class="qa rv">
+      <h3>“Tenho um parente maçom. Vou me sentir ofendido?”</h3>
+      <p>O livro é firme sobre a doutrina e respeitoso com as pessoas. Há uma resposta inteira para quem pergunta se o pai, que era maçom e um homem bom, está condenado. A Igreja julga a inscrição e os princípios, nunca a alma de ninguém.</p>
+    </div>
+    <div class="qa rv">
+      <h3>“72 páginas não é pouco?”</h3>
+      <p>É curto de propósito. Em vez de 300 páginas que ficam na estante, você tem a melhor história e o melhor documento de cada capítulo, para ler num fim de semana e explicar o assunto a qualquer pessoa.</p>
+    </div>
+    <div class="qa rv">
+      <h3>“E se eu não gostar?”</h3>
+      <p>Você tem 7 dias de garantia. Se achar que não valeu, peça o reembolso pela própria plataforma e recebe o valor integral, sem precisar explicar o motivo.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="rv">Para quem é este livro</h2>
+    <div class="regra rv"><span>✠</span></div>
+    <div class="duas">
+      <div class="rv">
+        <h3>É para você se…</h3>
+        <ul class="lista">
+          <li>gosta de história do Brasil e quer saber o que aconteceu de fato em 1889</li>
+          <li>já ouviu que “a Maçonaria proclamou a República” e quer entender o que aconteceu</li>
+          <li>quer entender por que a Igreja condena a Maçonaria, nas palavras dos Papas</li>
+          <li>precisa responder a um amigo, a um parente ou a um aluno sobre o assunto</li>
+          <li>procura um presente para um católico que gosta de ler</li>
+        </ul>
+      </div>
+      <div class="rv">
+        <h3>Não é para você se…</h3>
+        <ul class="lista vazado">
+          <li>quer uma teoria da conspiração pronta, sem documento</li>
+          <li>procura um tratado acadêmico de 400 páginas</li>
+          <li>quer um livro impresso (este é digital)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--paper-2);">
+  <div class="wrap">
+    <div class="proposito rv">
+      <p class="kicker">Produção Christus Imperat</p>
+      <h2>Por que fazemos estes livros</h2>
+      <div class="regra"><span>✠</span></div>
+      <p>O propósito do <b>Christus Imperat</b> é resgatar o valor da beleza e da tradição da Igreja a partir da sua história, e enriquecer o imaginário das novas gerações católicas com aquilo que a Igreja viveu, ensinou e construiu.</p>
+      <p>Cada livro é feito com o mesmo cuidado do <em>Símbolos da Santa Igreja</em>: história contada com fidelidade à Igreja, fontes conferidas e uma edição bonita, para ler e para guardar.</p>
+      <p class="arroba"><a href="https://www.instagram.com/christusimperat_/">@CHRISTUSIMPERAT_</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="escura oferta" id="oferta">
+  <div class="wrap">
+    <div class="caixa rv">
+      <img src="img/capa.webp" width="140" height="198" loading="lazy" alt="Capa do e-book">
+      <ul class="lista">
+        <li>E-book completo em PDF, com 72 páginas</li>
+        <li>Quatro partes: o Império, o golpe, o avental e o que disseram os Papas</li>
+        <li>Os documentos papais no original, com tradução</li>
+        <li>21 pinturas e fotografias</li>
+        <li>As 10 dúvidas mais comuns respondidas</li>
+        <li>Acesso imediato, para ler em qualquer aparelho</li>
+      </ul>
+      <div class="valor-grande">
+        <b><small>R$</small><span data-price>27</span></b>
+        <p>pagamento único, no Pix ou no cartão</p>
+      </div>
+      <a class="cta" href="#oferta" data-checkout>Quero o e-book</a>
+      <p class="nota">Você recebe o acesso por e-mail logo após o pagamento.</p>
+      <div class="garantia">
+        <div class="selo"><b>7</b><span>DIAS</span></div>
+        <p>Leia com calma. Se em 7 dias achar que o livro não valeu, peça o reembolso pela plataforma e devolvemos o valor integral.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="rv">Perguntas frequentes</h2>
+    <div class="regra rv"><span>✠</span></div>
+    <details><summary>Como recebo o e-book?</summary><p>Assim que o pagamento é confirmado, você recebe um e-mail com o acesso à área de membros, onde o PDF fica disponível para baixar. No Pix e no cartão, isso costuma levar poucos minutos.</p></details>
+    <details><summary>Consigo ler no celular?</summary><p>Sim. O PDF abre em qualquer celular, tablet ou computador. Se preferir papel, você pode imprimir.</p></details>
+    <details><summary>Preciso saber história para entender?</summary><p>Não. Cada personagem e cada termo é explicado quando aparece, e o livro começa pelo Império antes de chegar ao golpe.</p></details>
+    <details><summary>Posso dar de presente?</summary><p>Pode. É um bom presente para quem gosta de história do Brasil ou de apologética.</p></details>
+    <details><summary>Não recebi o acesso. E agora?</summary><p>Confira a caixa de spam e a aba Promoções do e-mail. Se não encontrar, fale com a gente pelo direct do Instagram <a href="https://www.instagram.com/christusimperat_/">@christusimperat_</a>.</p></details>
+    <div class="final">
+      <a class="cta" href="#oferta" data-checkout>Quero o e-book</a>
+      <p class="nota">R$ <span data-price>27</span> · acesso imediato · 7 dias de garantia</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="marca">CHRISTUS IMPERAT</p>
+  <p>Contato: direct do Instagram <a href="https://www.instagram.com/christusimperat_/">@christusimperat_</a></p>
+  <p><a href="../privacidade.html">Política de privacidade</a> · © 2026 Christus Imperat</p>
+</footer>
+
+<div class="barra" aria-hidden="true">
+  <div class="t"><b>O Altar e o Avental</b><span>R$ <span data-price>27</span> · 7 dias de garantia</span></div>
+  <a class="cta" href="#oferta" data-checkout tabindex="-1">Quero</a>
+</div>
+
+<script>
+  // Preço e checkout num lugar só. ?angulo=xxx segue para a Hubla como utm_content.
+  const PRECO = 27;
+  const CHECKOUT = "https://pay.hub.la/Ix9xl63C2EpCoqZBW6Tp";
+  const ANGULO = new URLSearchParams(location.search).get("angulo");
+  document.querySelectorAll("[data-price]").forEach(el => el.textContent = PRECO);
+  if (CHECKOUT) document.querySelectorAll("[data-checkout]").forEach(a => a.href = CHECKOUT + (ANGULO ? "?utm_content=" + encodeURIComponent(ANGULO) : ""));
+
+  // revelação ao rolar
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px" });
+  document.querySelectorAll(".rv").forEach(el => io.observe(el));
+
+  // barra fixa: aparece depois do topo e some na oferta
+  const barra = document.querySelector(".barra"), hero = document.querySelector(".hero"), oferta = document.getElementById("oferta");
+  let passou = false, naOferta = false;
+  const upd = () => barra.classList.toggle("on", passou && !naOferta);
+  new IntersectionObserver(([e]) => { passou = !e.isIntersecting; upd(); }).observe(hero);
+  new IntersectionObserver(([e]) => { naOferta = e.isIntersecting; upd(); }).observe(oferta);
+</script>
+</body>
+</html>
